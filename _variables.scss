@@ -1,0 +1,24 @@
+$dark_blue: hsl(238, 29%, 16%);
+$orange: hsl(14, 88%, 65%);
+$soft_pink: hsl(273, 75%, 66%);
+$soft_purple: hsl(240, 73%, 65%);
+$dark_gray: hsl(237, 12%, 33%);
+$gray: hsl(240, 6%, 50%);
+$light_gray: hsl(240, 5%, 91%);
+$primary_font: "Kumbh Sans", sans-serif;
+$font_weight: (
+  regular: 400,
+  bold: 700,
+);
+
+@mixin font_style($weight, $size, $color) {
+  font-weight: map-get($font-weight, $weight);
+  color: $color;
+  font-size: $size;
+}
+
+@mixin desktop {
+  @media (min-width: 900px) {
+    @content;
+  }
+}

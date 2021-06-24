@@ -1,0 +1,125 @@
+@import "./variables";
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-position: center;
+  background-repeat: no-repeat;
+  min-height: 100vh;
+  display: grid;
+  grid-template-rows: auto minmax(auto, max-content);
+  grid-template-columns: 1fr;
+  justify-content: center;
+  background: linear-gradient($soft_pink, $soft_purple);
+  font-family: $primary_font;
+  font-size: 12px;
+}
+.main-section {
+  align-self: center;
+}
+.main {
+  //   align-self: center;
+  margin: 150px 25px 50px 25px;
+  @include desktop {
+    margin: auto 10%;
+  }
+}
+
+.card {
+  margin: auto;
+  background: no-repeat top/70% url(/images/bg-pattern-mobile.svg), white;
+  height: fit-content;
+  border-radius: 25px;
+  padding: 5%;
+  max-width: 325px;
+  position: relative;
+  @include desktop {
+    max-width: 100%;
+    background: no-repeat bottom 100px left -75px/500px url(/images/illustration-woman-online-desktop.svg),
+      no-repeat bottom -125px left -580px/1000px url(/images/bg-pattern-desktop.svg),
+      white;
+    padding: 5% 7% 5% 50%;
+  }
+  .box-desktop {
+    display: none;
+    @include desktop {
+      display: block;
+      position: absolute;
+      left: -117px;
+      bottom: 146px;
+    }
+  }
+  .header {
+    text-align: left;
+    .woman-mobile {
+      position: absolute;
+      left: 5%;
+      width: 80%;
+      transform: translate(0, -65%);
+      @include desktop {
+        display: none;
+      }
+    }
+    .title {
+      padding-top: 100px;
+      padding-bottom: 30px;
+      text-align: center;
+      @include font_style(bold, 2rem, $dark_blue);
+      @include desktop {
+        padding: 0;
+        text-align: left;
+      }
+    }
+  }
+  .accordian {
+    .accordian-item {
+      overflow: hidden;
+      margin: 15px 0px;
+      cursor: pointer;
+      &.selected {
+        .body {
+          max-height: 50px;
+        }
+        .title-title {
+          font-weight: map-get($font_weight, bold);
+        }
+        .title-icon {
+          transform: rotate(-180deg);
+        }
+      }
+      .title-container {
+        display: flex;
+        width: 100%;
+        align-items: center;
+        justify-content: space-between;
+        .title-title {
+          font-size: 14px;
+          margin: 10px 0px;
+          &:hover {
+            color: $orange;
+          }
+        }
+        .title-icon {
+          transition: transform 0.3s ease-out;
+        }
+      }
+      .body {
+        overflow: hidden;
+        line-height: 15px;
+        transition: max-height 0.3s ease-out;
+        max-height: 0;
+      }
+    }
+  }
+}
+
+hr {
+  color: $gray;
+}
+hr:last-child {
+  margin-bottom: 20px;
+}
